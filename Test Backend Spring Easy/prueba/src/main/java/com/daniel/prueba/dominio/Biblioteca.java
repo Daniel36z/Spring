@@ -17,7 +17,7 @@ public class Biblioteca {
 
     ArrayList<Recurso> recursos = new ArrayList<>();
 
-    @PostMapping("/biblioteca/v1")  //como se instancia de Recurso este no dene ser abtracto
+    @PostMapping("/biblioteca/agregar")  //como se instancia de Recurso este no dene ser abtracto
     public ResponseEntity<String> agregarRecurso(@RequestBody Recurso recursoEntrante) {
 
         Recurso tipoRecurso = null;
@@ -30,18 +30,16 @@ public class Biblioteca {
             }
         }
 
-        if(recursoEntrante.getTipo() == 1){
+        if(recursoEntrante.getTipoRecurso() == 1){
             tipoRecurso = new Libro(recursoEntrante.nombre,recursoEntrante.getCodigo(),
-                    recursoEntrante.getTipo());
+                    recursoEntrante.getTipoRecurso());
         }
-
-
 
         recursos.add(tipoRecurso);
         return new ResponseEntity<>("codigo: " + recursoEntrante.getCodigo(), HttpStatus.OK);
     }
 
-    @GetMapping("/biblioteca/v2")
+    @GetMapping("/biblioteca/consultar")
     public List<Recurso> listarRecursos(){
 
         return recursos;

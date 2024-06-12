@@ -5,20 +5,14 @@ public class Recurso {
     protected String codigo;
     protected int nroCopias;
     protected boolean prestado;
-    protected  int tipo;
+    protected  int tipoRecurso;
 
-    public int getTipo() {
-        return tipo;
-    }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
 
-    public Recurso(String nombre, String codigo, int tipo) {
+    public Recurso(String nombre, String codigo, int tipoRecurso) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.tipo = tipo;
+        this.tipoRecurso = tipoRecurso;
     }
 
     public int getNroCopias() {
@@ -27,6 +21,14 @@ public class Recurso {
 
     public void setNroCopias(int nroCopias) {
         this.nroCopias = nroCopias;
+    }
+
+    public int getTipoRecurso() {
+        return tipoRecurso;
+    }
+
+    public void setTipoRecurso(int tipoRecurso) {
+        this.tipoRecurso = tipoRecurso;
     }
 
     public boolean isPrestado() {
@@ -53,6 +55,7 @@ public class Recurso {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
 
 
 }
