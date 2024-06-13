@@ -7,7 +7,13 @@ public class Recurso {
     protected boolean prestado;
     protected  int tipoRecurso;
 
+    public boolean isPrestado() {
+        return prestado;
+    }
 
+    public void setPrestado(boolean prestado) {
+        this.prestado = prestado;
+    }
 
     public Recurso(String nombre, String codigo, int tipoRecurso) {
         this.nombre = nombre;
@@ -29,14 +35,6 @@ public class Recurso {
 
     public void setTipoRecurso(int tipoRecurso) {
         this.tipoRecurso = tipoRecurso;
-    }
-
-    public boolean isPrestado() {
-        return prestado;
-    }
-
-    public void setPrestado(boolean prestado) {
-        this.prestado = prestado;
     }
 
 
