@@ -11,4 +11,9 @@ public class Revista extends Recurso implements Prestable{
     public void prestar() {
         this.setPrestado(true);
     }
+
+    @Override
+    public void devolver() {
+        this.setPrestado(false);
+    }
 }

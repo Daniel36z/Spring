@@ -64,9 +64,48 @@ public class Biblioteca {
                 }
                 else if (recursoBuscado instanceof Prestable) {
                     ((Prestable) recursoBuscado).prestar();
+                    return new ResponseEntity<>("Ok todo en orden", HttpStatus.OK);
                 }
             }
         }
-        return new ResponseEntity<>("Ok todo en orden", HttpStatus.OK);
+        return new ResponseEntity<>("Ups!! Algo ha salido mal", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
+    @PostMapping("/biblioteca/devolver/{codigo}")
+    public ResponseEntity<String > devolver(@PathVariable("codigo") String codigo){
+
+        for (Recurso recursoBuscado: recursos){
+
+            if(Objects.equals(recursoBuscado.getCodigo(), codigo)){
+                if(recursoBuscado instanceof Tesis){
+                    return new ResponseEntity<>("Este recurso no se presta", HttpStatus.NOT_ACCEPTABLE);
+                }
+                else if (!recursoBuscado.prestado) {
+                    return new ResponseEntity<>("Este recurso no se ha prestado", HttpStatus.NOT_ACCEPTABLE);
+                }
+                else if (recursoBuscado instanceof Prestable) {
+                    ((Prestable) recursoBuscado).devolver();
+                    return new ResponseEntity<>("Ok todo en orden", HttpStatus.OK);
+                }
+            }
+        }
+        return new ResponseEntity<>("¡Algo ha salido mal!", HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @PostMapping("/biblioteca/fotocopiar/{codigo}")
+    public ResponseEntity<String> fotocopiar(@PathVariable("codigo") String codigo){
+        for(Recurso recursoBuscado: recursos){
+            if(Objects.equals(recursoBuscado.getCodigo(), codigo)){
+                if(recursoBuscado instanceof Revista){
+                    return new ResponseEntity<>("Este recurso no se pued duplicar", HttpStatus.BAD_REQUEST);
+                }
+                else if (recursoBuscado instanceof Copiable) {
+                    ((Copiable) recursoBuscado).copiar();
+                    return new ResponseEntity<>("Ok se ha generado una copia", HttpStatus.OK);
+                }
+            }
+        }
+        return new ResponseEntity<>("¡Algo ha salido mal!", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
