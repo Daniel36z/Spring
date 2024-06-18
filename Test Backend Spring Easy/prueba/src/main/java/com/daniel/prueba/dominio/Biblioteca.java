@@ -108,4 +108,16 @@ public class Biblioteca {
         }
         return new ResponseEntity<>("¡Algo ha salido mal!", HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
+    @GetMapping("/biblioteca/prestados")
+    public List<Recurso> listarPrestados(){
+        return  this.recursos.stream().filter(i->i.prestado).toList();
+    }
+
+    @GetMapping("/biblioteca/copiados")
+    public List<Recurso> listarCopias(){
+        return  this.recursos.stream().filter(i->i.nroCopias>0).toList();
+    }
+
 }
