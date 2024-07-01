@@ -1,7 +1,7 @@
-package com.daniel.crud.service;
+package com.daniel.crud.application.services;
 
-import com.daniel.crud.model.libraryModel;
-import com.daniel.crud.repository.libraryRepository;
+import com.daniel.crud.infrastructure.adapter.entity.libraryModel;
+import com.daniel.crud.infrastructure.adapter.repository.libraryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

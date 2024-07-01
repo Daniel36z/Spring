@@ -1,4 +1,4 @@
-package com.daniel.crud.model;
+package com.daniel.crud.infrastructure.adapter.entity;
 
 import jakarta.persistence.*;
 

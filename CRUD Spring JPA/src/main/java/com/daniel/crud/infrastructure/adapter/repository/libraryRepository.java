@@ -1,6 +1,6 @@
-package com.daniel.crud.repository;
+package com.daniel.crud.infrastructure.adapter.repository;
 
-import com.daniel.crud.model.libraryModel;
+import com.daniel.crud.infrastructure.adapter.entity.libraryModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
