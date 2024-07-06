@@ -1,4 +1,4 @@
-package com.daniel.crud.infrastructure.repository;
+package com.daniel.crud.infrastructure.adapters.repository;
 
 import com.daniel.crud.domain.model.OrdenModel;
 import com.daniel.crud.domain.repository.OrderRepository;

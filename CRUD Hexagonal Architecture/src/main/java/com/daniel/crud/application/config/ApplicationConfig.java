@@ -1,5 +1,6 @@
 package com.daniel.crud.application.config;
 
+import com.daniel.crud.application.ports.OrderUseCases;
 import com.daniel.crud.application.services.OrderServiceImp;
 import com.daniel.crud.domain.repository.OrderRepository;
 import com.daniel.crud.domain.services.OrderService;
@@ -15,7 +16,7 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public OrderRepository orderRepository(OrderService orderService) {
+    public OrderUseCases orderUseCases(OrderService orderService) {
         return new OrderServiceImp(orderService);
     }
 }
