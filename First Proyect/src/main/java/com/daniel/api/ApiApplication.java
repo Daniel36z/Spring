@@ -1,19 +1,13 @@
-package com.daniel.crud;
+package com.daniel.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudApplication {
+public class ApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudApplication.class, args);
-		{
-
-
-
-		}
+		SpringApplication.run(ApiApplication.class, args);
 	}
+
 }
-
-
